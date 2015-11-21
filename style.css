@@ -1,0 +1,347 @@
+  /* Font/Line/Text Definitions */
+  article, nav,
+  section.inside-cover,
+  section.cover-sheet {
+    font-family: "Merriweather", serif;
+    text-align: justify;
+    text-justify: inter-ideograph;
+    font-size: 15px;
+    line-height: 1.5;
+    word-wrap: break-word;
+  }
+  blockquote {
+    line-height: 1.25;
+    font-size: 0.85em;
+  }
+  h1, h2, h3, h4, h5, h6, .subtitle {
+    text-align: justify;
+    text-justify: inter-ideograph;
+    line-height: 1.25;
+  }
+  h1 {
+    font-size: 2em;
+    font-family: "Merriweather Sans";
+    font-weight: normal;
+    text-align: center;
+  }
+  .subtitle {
+    font-size: 1.333em;
+    text-align: center;
+  }
+  h2 {
+    font-size: 1.25em;
+    font-family:"Merriweather",serif;
+    font-weight: bold;
+  }
+  h3 {
+    font-size: 1.15em;
+    font-weight: bold;
+  }
+  h4 {
+    font-size: 1em;
+    font-weight: bold;
+  }
+  h5 {
+    font-size: 1em;
+    font-weight: normal;
+    font-style: italic;
+  }
+  h6 {
+    font-size: 1em;
+    font-weight: normal;
+  }
+
+  .doi {
+    font-variant: small-caps;
+  }
+ 
+  @media screen {
+    a:not([href^="#"]) {
+      background-image: linear-gradient(transparent,transparent),url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtODI2LjQyOSAtNjk4Ljc5MSkiPjxyZWN0IHdpZHRoPSI1Ljk4MiIgaGVpZ2h0PSI1Ljk4MiIgeD0iODI2LjkyOSIgeT0iNzAyLjMwOSIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMDZjIi8+PGc+PHBhdGggZD0iTTgzMS4xOTQgNjk4Ljc5MWg1LjIzNHY1LjM5MWwtMS41NzEgMS41NDUtMS4zMS0xLjMxLTIuNzI1IDIuNzI1LTIuNjg5LTIuNjg5IDIuODA4LTIuODA4LTEuMzExLTEuMzExeiIgZmlsbD0iIzA2ZiIvPjxwYXRoIGQ9Ik04MzUuNDI0IDY5OS43OTVsLjAyMiA0Ljg4NS0xLjgxNy0xLjgxNy0yLjg4MSAyLjg4MS0xLjIyOC0xLjIyOCAyLjg4MS0yLjg4MS0xLjg1MS0xLjg1MXoiIGZpbGw9IiNmZmYiLz48L2c+PC9nPjwvc3ZnPg==);
+      background-repeat: no-repeat;
+      background-position: center right;
+      padding-right: 13px;
+    }
+  }
+  
+  @media print {
+    a, a:visited {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  /* Layout Definitions */
+  @media print {
+    @page {
+      margin: 2.5cm 3cm;
+    }
+  }
+  .cover {
+    display: block;
+    width: 100%;
+    page-break-after: always;
+  }
+  @media screen {
+    .cover {
+      display: block;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto 3em;
+    }
+  }
+  article {
+    display: block;
+    page-break-after: always;
+  }
+  @media screen {
+    article {
+      max-width: 800px;
+      padding: 5em;
+      margin: 0 auto 3em;
+      border: 1px solid black;
+    }
+  }
+  section.inside-cover {
+    display: block;
+    page-break-after: always;
+  }
+  @media screen {
+    section.inside-cover {
+      max-width: 800px;
+      padding: 5em;
+      margin: 0 auto 3em;
+      border: 1px solid black;
+    }
+  }
+  section.cover-sheet {
+    display: block;
+    page-break-after: always;
+  }
+  @media screen {
+    section.cover-sheet {
+      max-width: 800px;
+      padding: 5em;
+      margin: 0 auto 3em;
+      border: 1px solid black;
+    }
+  }
+  nav {
+    display: block;
+    page-break-after: always;
+  }
+  @media screen {
+    nav {
+      max-width: 800px;
+      padding: 5em;
+      margin: 0 auto 3em;
+      border: 1px solid black;
+    }
+  }
+  @media print {
+    nav {
+      display: none;
+    }
+  }
+  p, li {
+    margin: 0 0 1em;
+  }
+  blockquote {
+    margin: 1em 1em 1em 3em;
+  }
+  p + blockquote,
+  li + blockquote {
+    margin-top: 0;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after:avoid;
+    margin-right: 0;
+    margin-left: 0;
+    margin-top: 1.5em;
+  }
+  h2, h3, h4, h5, h6 {
+    margin-bottom: 0.75em;
+  }
+  h1 {
+    margin-bottom: 2em;
+  }
+  h1:first-child, h2:first-child, h3:first-child,
+  h4:first-child, h5:first-child, h6:first-child {
+    margin-top: 0;
+  }
+  .subtitle {
+    margin: 0;
+  }
+  hgroup h1 {
+    margin-bottom: 0;
+  }
+  hgroup {
+    margin-bottom: 4em;
+  }
+
+  /* List Definitions */
+  ol {
+    margin-bottom:0cm;
+  }
+  ul {
+    margin-bottom:0cm;
+  }
+  
+  /* Section titles */
+  .book-title, .seq-title {
+    text-align: center;
+  }
+  
+  h1.book-title {
+    font-size: 3.5em;
+    margin-bottom: 0.75em;
+  }
+  h1.seq-title {
+    font-size: 2.5em;
+    margin-bottom: 0.75em;
+  }
+  @media screen {
+    h1.book-title {
+      margin-top: 3em;
+    }
+    h1.seq-title {
+      margin-bottom: 3em;
+    }
+    h1.seq-title::before {
+      display: block;
+      content: "*";
+      font-size: 0.5em;
+      margin: 5em auto 3em;
+    }
+    h1.book-title + section h1.seq-title::before {
+      margin-top: 3em;
+    }
+  }
+  @media print {
+    h1.book-title {
+      page-break-before: always;
+    }
+    h1.seq-title:first-child {
+      page-break-after: always;
+    }
+    h1.seq-title:not(:first-child) {
+      page-break-before: always;
+    }
+    h1.seq-title {
+      margin-top: 6em;
+    }
+    h1.book-title + section h1.seq-title {
+      margin-top: 0;
+    }
+    h1.book-title + section h1.seq-title::before {
+      display: block;
+      content: "*";
+      font-size: 0.5em;
+      margin: 3em auto 3em;
+    }
+  }
+
+  /* Notes */
+  .note-ref {
+    vertical-align: super;
+    font-size: smaller;
+  }
+  .note-ref + .note-ref {
+    margin-left: 0.25em;
+  }
+  .note-backref::before {
+    content: "↑";
+  }
+  .note-backref {
+    margin-right: 0.5em;
+  }
+  @media print {
+    .note-ref {
+      color: inherit;
+      text-decoration: none;
+    }
+    .note-backref {
+      display: none;
+    }
+  }
+  
+  /* Endlinks */
+  .endlink::before {
+    content: "*";
+    display: block;
+    line-height: 5;
+  }
+  .endlink {
+    text-align: center;
+    page-break-before: avoid;
+  }
+  @media print {
+    .endlink {
+      display: none;
+    }
+  }
+
+  /* Nav */
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 1em 0;
+  }
+  nav li {
+    margin: 0;
+    line-height: 1.5;
+  }
+  nav li a[href^="#book-"] {
+    display: block;
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 1em;
+  }
+  nav li a[href^="#seq-"] {
+    display: inline-block;
+    font-size: 1.25em;
+    margin-top: 0.5em;
+  }
+  
+  /* Cover */
+  section.inside-cover,
+  section.inside-cover h1,
+  section.inside-cover h2 {
+    text-align: center;
+  }
+  section.inside-cover img {
+    width: 100%;
+  }
+  @media screen {
+    section.inside-cover img {
+      margin-top: 3em;
+    }
+  }
+  @media print {
+    section.inside-cover {
+      position: relative;
+      height: 100%;
+    }
+    section.inside-cover h1 {
+      margin-top: 25%;
+    }
+    section.inside-cover h2 {
+      margin-top: 20%;
+    }
+    section.inside-cover img {
+      margin-top: 45%;
+    }
+  }
+  
+  section.cover-sheet {
+    text-align: center;
+    line-height: 1.5;
+  }
+  section.cover-sheet table {
+    margin: 2em auto;
+  }
+  section.cover-sheet td {
+    line-height: 1.5;
+    padding: 0 1em;
+  }
