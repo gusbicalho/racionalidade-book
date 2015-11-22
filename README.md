@@ -30,12 +30,12 @@ automatizadas:
 facilitar a visualização com as tags "fechadas" no editor de texto:
   - Find: `(<article id=".*?">)[\s]*(?:(<hgroup>)\s*)?<h1` Replace: `$1$2<h1`
   - Alinhar o resto do `<hgroup>`:
+    - Find: `(<article id=".*?"><hgroup><h1>.*?</h1>)\s*(<p class="subtitle">.*?</p>)\s*</hgroup>`
+    - Replace: `$1\n                               $2\n                        </hgroup>`
 
 
-    Find:
-    (<article id=".*?"><hgroup><h1>.*?</h1>)\s*(<p class="subtitle">.*?</p>)\s*</hgroup>
-    Replace:
-    $1\n                                $2\n                        </hgroup>
+    `$1\n                               $2\n                        </hgroup>`
+
 
 - [ ] Links e back-links de notas corretos com o ID do artigo correto.
   - Find: `<sup>(\d+)[\n\r ]+(\d+)</sup>` Replace: `<a class="note-ref"
