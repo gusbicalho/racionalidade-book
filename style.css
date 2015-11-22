@@ -105,9 +105,15 @@
       border: 1px solid black;
     }
   }
+  article:last-child, section:last-child {
+    page-break-after: auto;
+  }
   @media print {
     nav {
       display: none;
+    }
+    section.inside-cover {
+      page-break-before: right;
     }
   }
   p, li {
@@ -198,23 +204,20 @@
   @media print {
     h1.book-title {
       page-break-before: right;
+      box-sizing: border-box;
+      height: 10cm;
+      padding: 3cm 0 0;
+      margin: 0;
     }
     h1.seq-title {
       page-break-before: right;
       page-break-after: always;
+      padding-top: 10cm;
     }
-    h1.seq-title {
-      padding-top: 6em;
-    }
+    /* the title of the first Sequence in a Book */
     h1.book-title + section h1.seq-title {
       padding-top: 0;
       page-break-before: auto;
-    }
-    h1.book-title + section h1.seq-title::before {
-      display: block;
-      content: "*";
-      font-size: 0.5em;
-      margin: 3em auto 3em;
     }
   }
 
