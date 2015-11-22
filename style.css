@@ -225,6 +225,7 @@
   .note-ref {
     vertical-align: super;
     font-size: smaller;
+    text-transform: uppercase;
   }
   .note-ref + .note-ref {
     margin-left: 0.25em;
@@ -244,21 +245,39 @@
       display: none;
     }
   }
+  ol.references, ol.trans-notes {
+    padding-left: 6ex;
+  }
+  ol.trans-notes {
+    counter-reset: item;
+    list-style-type: none;
+  }
+  ol.trans-notes li:before {
+    content: 'NT ' counter(item, decimal) '. ';
+    counter-increment: item;
+    display: inline-block;
+    width: 7ex;
+    padding-right: 1ex;
+    margin-left: -8ex;
+    text-align: right;
+  }
 
   /* Endlinks */
-  .endlink::before {
-    content: "*";
+  .endlink a::before {
     display: block;
-    line-height: 5;
+    content: "*";
+    font-size: 2em;
+    padding-top: 1ex;
+  }
+  .endlink a {
+    display: inline-block;
+    background: none;
+    padding: 0;
+    text-decoration: none;
   }
   .endlink {
     text-align: center;
     page-break-before: avoid;
-  }
-  @media print {
-    .endlink {
-      display: none;
-    }
   }
 
   /* Nav */

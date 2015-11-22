@@ -66,8 +66,8 @@ a página do artigo na wiki
   - Find: `<i>(.*?)</i>` Replace: `<em>$1</em>`
   - Find: `<b>(.*?)</b>` Replace: `<strong>$1</strong>`
 - [ ] Aspas:
-  - Find: `([^=])"([^=\n]*?)"` Replace: `$1“$2”`
-  - Find: `([^=])'([^=\n]*?)''` Replace: `$1‘$2’`
+  - Find: `([ \(\[])"([^=\n]*?)"` Replace: `$1“$2”`
+  - Find: `([ \(\[])'([^=\n]*?)''` Replace: `$1‘$2’`
 - [ ] `</p>`s logo após o fim do texto
   - Find: `\s+</p>` Replace: `</p>`
 
@@ -119,31 +119,34 @@ na forma `art-x`, onde `x` é o número que identifica o artigo. No caso de text
 sem número (como prefácio e interlúdios), `x` deve ser substituído por uma única
 palavra ou abreviação que identifique o texto (eg. `pref`, `intro`).
 
+### Link para o original
+
+Ao final da maioria dos artigos haverá um link para o post original no
+LessWrong. Esse link deve ser inserido **após o texto, antes das notas de
+rodapé**, com a tag `<p class="endlink"><a target="_blank" href="..."></a></p>`,
+substituindo-se as reticências pela URL completa do post.
+
 ### Notas de rodapé
 
-As notas de rodapé são apresentadas ao fim dos textos. Elas serão marcadas pela
-tag `<h2>Notas</h2>`, quando constarem do texto original, ou `<h2>Notas de
-tradução</h2>`, quando forem observações feitas pelo tradutor. As notas de
-tradução tem numeração independente das notas originais, e são identificadas
-pelo prefixo `NT`.
+As notas de rodapé são apresentadas ao fim dos textos, após o link para o
+original. Nos casos em que não houver link para o original, elas serão marcadas
+pela tag `<h2>Notas</h2>`. As notas de tradução vêm depois das notas originais e
+têm numeração independente, e são identificadas pelo prefixo `NT`. O prefixo é
+acrescentado automaticamente na exibição, mas deve ser incluído nos `id`s das
+notas (ver abaixo).
 
 Após a tag `<h2>`, deve haver uma lista ordenada, criada com a tag `<ol
-class="references">`. Cada nota será um item da lista, com a forma `<li
-id="art-X-n-Y"><a class="note-backref" href="#art-X-nref-Y"></a> ... </li>`
+class="references">`, no caso das notas constantes do original, ou `<ol
+class="trans-notes">`, no caso das notas de tradução. Cada nota será um item da
+lista, com a forma `<li id="art-X-n-Y"><a class="note-backref"
+href="#art-X-nref-Y"></a> ... </li>`
 
 Para inserir uma referência a uma nota de rodapé no corpo do texto, usa-se a tag
 `<a class="note-ref" href="#art-X-n-Y" id="art-X-nref-Y">Y</a>`.
 
 Nas fórmulas acima, X é o identificador do artigo (como especificado no atributo
 `id` do `<article>`), e Y é o número da nota. Caso se trate de uma nota de
-tradução, Y deve conter o prefixo `NT` (eg. `NT1`).
-
-### Link para o original
-
-Ao final da maioria dos artigos haverá um link para o post original no
-LessWrong. Esse link deve ser inserido **após as notas de rodapé**, com a tag
-`<p class="endlink"><a target="_blank" href="...">...</a></p>`, substituindo-se
-as reticências pela URL completa do post.
+tradução, Y deve conter o prefixo `nt` (eg. `nt1`).
 
 ### Links internos ao livro
 
