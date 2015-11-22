@@ -38,6 +38,7 @@ $1\n                               $2\n                        </hgroup>
 ```
 
 - [ ] Links e back-links de notas corretos com o ID do artigo correto.
+  Substituir o `id` no lugar dos `@` abaixo:
   - Find: `<sup>(\d+)[\n\r ]+(\d+)</sup>` Replace: `<a class="note-ref"
   href="#art-@-n-$1" id="art-@-nref-$1">$1</a>`
   - Find: `<sup id=\".*?\" class=\"reference\"><a
