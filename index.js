@@ -103,11 +103,11 @@
 
   function newBook(bookNode) {
     var t = bookNode.attributes.t.value.trim()
-    var space = t.indexOf(" ")
-    var index = t.slice(0, space).trim()
-    var bookName = t.slice(space+1).trim()
+    var separator = t.indexOf(".")
+    var index = t.slice(0, separator).trim()
+    var bookName = t.slice(separator+1).trim()
     var wrapper = $("<section id='book-" + index.toLowerCase() + "'>")
-    var title = $("<h1 class'book-title'>")
+    var title = $("<h1 class='book-title'>")
     title.text(index.toUpperCase() + " - " + bookName)
     wrapper.html(bookNode.innerHTML)
     wrapper.prepend(title)
@@ -121,11 +121,32 @@
     })
   }
 
+  function newSequence(seqNode) {
+    var t = seqNode.attributes.t.value.trim()
+    var separator = t.indexOf(".")
+    var index = t.slice(0, separator).trim()
+    var seqName = t.slice(separator+1).trim()
+    var wrapper = $("<section id='seq-" + index.toLowerCase() + "'>")
+    var title = $("<h1 class='seq-title'>")
+    title.text(index.toUpperCase() + ". " + seqName)
+    wrapper.html(seqNode.innerHTML)
+    wrapper.prepend(title)
+    return wrapper
+  }
+
+  function replaceSequences(document) {
+    console.log('Replacing sequences...')
+    $("sequence").each(function(i, seqNode) {
+      $(seqNode).replaceWith(newSequence(seqNode))
+    })
+  }
+
   if (window.document) {
     window.document.addEventListener(
       'DOMContentLoaded',
       withTarget(runAll([
         replaceBooks,
+        replaceSequences,
         replaceFootnoteRefs,
         replaceFootnotes,
         replaceEndlinks,
