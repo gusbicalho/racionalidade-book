@@ -38,17 +38,24 @@
     return firstParentWithName(node, "ARTICLE")
   }
 
-  function replaceFootnoteRefs(document) {
-    console.log('Replacing footnote refs...')
-    $("ref").each(function(i, node) {
-      var refname = node.textContent
-      var artid = parentArticle(node).id
-      $(node).replaceWith(
-        "<a class='note-ref' " +
-        "href='#" + artid + "-n-" + refname + "' " +
-        "id='" + artid + "-nref-" + refname + "' " +
-        ">" + refname + "</a>")
-    })
+  function replaceElements(selector, builderFn) {
+    return function () {
+      console.log('Replacing '+selector+" ...")
+      $(selector).each(function(i, node) {
+        $(node).replaceWith(builderFn(node))
+      })
+    }
+  }
+
+  function newFootnoteRef(refNode) {
+    var refname = refNode.textContent
+    var artid = parentArticle(refNode).id
+    return $(
+      "<a class='note-ref' " +
+      "href='#" + artid + "-n-" + refname + "' " +
+      "id='" + artid + "-nref-" + refname + "' " +
+      ">" + refname + "</a>"
+    )
   }
 
   function newFootnote(i, noteNode) {
@@ -73,17 +80,7 @@
     return ol
   }
 
-  function replaceFootnotes(document) {
-    console.log('Replacing footnotes...')
-    $("notes").each(function(i,notesNode) {
-      $(notesNode).replaceWith(newFootnotesList(notesNode))
-    })
-  }
-
   function newEndlink(endlinkNode) {
-    // <p class="endlink">
-    // <a target="_blank" href="http://lesswrong.com/lw/jm/the_lens_that_sees_its_flaws/"></a>
-    // </p>
     var href = endlinkNode.innerHTML.trim()
     var link = $(
       "<a target='_blank' " +
@@ -94,62 +91,36 @@
     return wrapper
   }
 
-  function replaceEndlinks(document) {
-    console.log('Replacing endlinks...')
-    $("endlink").each(function(i,endlinkNode) {
-      $(endlinkNode).replaceWith(newEndlink(endlinkNode))
-    })
+  function newSection(sectionType, node) {
+    var t = node.attributes.t.value.trim()
+    var separator = t.indexOf(".")
+    var index = t.slice(0, separator).trim()
+    var name = t.slice(separator+1).trim()
+    var wrapper = $("<section id='" + sectionType + "-" + index.toLowerCase() + "'>")
+    var title = $("<h1 class='" + sectionType + "-title'>")
+    title.text(index.toUpperCase() + " - " + name)
+    wrapper.html(node.innerHTML)
+    wrapper.prepend(title)
+    return wrapper
   }
 
   function newBook(bookNode) {
-    var t = bookNode.attributes.t.value.trim()
-    var separator = t.indexOf(".")
-    var index = t.slice(0, separator).trim()
-    var bookName = t.slice(separator+1).trim()
-    var wrapper = $("<section id='book-" + index.toLowerCase() + "'>")
-    var title = $("<h1 class='book-title'>")
-    title.text(index.toUpperCase() + " - " + bookName)
-    wrapper.html(bookNode.innerHTML)
-    wrapper.prepend(title)
-    return wrapper
-  }
-
-  function replaceBooks(document) {
-    console.log('Replacing books...')
-    $("book").each(function(i, bookNode) {
-      $(bookNode).replaceWith(newBook(bookNode))
-    })
+    return newSection("book", bookNode)
   }
 
   function newSequence(seqNode) {
-    var t = seqNode.attributes.t.value.trim()
-    var separator = t.indexOf(".")
-    var index = t.slice(0, separator).trim()
-    var seqName = t.slice(separator+1).trim()
-    var wrapper = $("<section id='seq-" + index.toLowerCase() + "'>")
-    var title = $("<h1 class='seq-title'>")
-    title.text(index.toUpperCase() + ". " + seqName)
-    wrapper.html(seqNode.innerHTML)
-    wrapper.prepend(title)
-    return wrapper
-  }
-
-  function replaceSequences(document) {
-    console.log('Replacing sequences...')
-    $("sequence").each(function(i, seqNode) {
-      $(seqNode).replaceWith(newSequence(seqNode))
-    })
+    return newSection("seq", seqNode)
   }
 
   if (window.document) {
     window.document.addEventListener(
       'DOMContentLoaded',
       withTarget(runAll([
-        replaceBooks,
-        replaceSequences,
-        replaceFootnoteRefs,
-        replaceFootnotes,
-        replaceEndlinks,
+        replaceElements("book", newBook),
+        replaceElements("sequence", newSequence),
+        replaceElements("ref", newFootnoteRef),
+        replaceElements("notes", newFootnotesList),
+        replaceElements("endlink", newEndlink),
       ]))
     );
   }
