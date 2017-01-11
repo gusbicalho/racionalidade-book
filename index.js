@@ -18,13 +18,10 @@
     return firstParentWithName(node, "ARTICLE")
   }
 
-  function replaceLinks(document) {
-    //<a class="note-ref" href="#art-intro-n-1" id="art-intro-nref-1">1</a>
-    //document.on
+  function replaceFootnoteRefs(document) {
     $("ref").each(function(i, node) {
       var refname = node.textContent
       var artid = parentArticle(node).id
-      console.log(artid)
       $(node).replaceWith(
         "<a class='note-ref' " +
         "href='#" + artid + "-n-" + refname + "' " +
@@ -40,7 +37,7 @@
   }
 
   if (window.document) {
-    window.document.addEventListener('DOMContentLoaded', withTarget(replaceLinks));
+    window.document.addEventListener('DOMContentLoaded', withTarget(replaceFootnoteRefs));
   }
 
 })(window);
