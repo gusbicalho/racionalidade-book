@@ -10,10 +10,12 @@
   }
 
   function runAll(fs) {
-    return function() {
-      return fs.map(function(f) {
-        return f.apply(this, arguments)
-      })
+    return function(initialContext) {
+      return fs.reduce(
+        function(ctx, f) {
+          return f(ctx)
+        },
+        initialContext || {})
     }
   }
 
@@ -39,11 +41,12 @@
   }
 
   function replaceElements(selector, builderFn) {
-    return function () {
+    return function (context) {
       console.log('Replacing '+selector+" ...")
       $(selector).each(function(i, node) {
         $(node).replaceWith(builderFn(node))
       })
+      return context
     }
   }
 
@@ -115,13 +118,13 @@
   if (window.document) {
     window.document.addEventListener(
       'DOMContentLoaded',
-      withTarget(runAll([
+      runAll([
         replaceElements("book", newBook),
         replaceElements("sequence", newSequence),
         replaceElements("ref", newFootnoteRef),
         replaceElements("notes", newFootnotesList),
         replaceElements("endlink", newEndlink),
-      ]))
+      ]).bind(null, {})
     );
   }
 
