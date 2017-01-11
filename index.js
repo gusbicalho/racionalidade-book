@@ -51,7 +51,7 @@
     })
   }
 
-  function replacementForFootnote(i, noteNode) {
+  function newFootnote(i, noteNode) {
     var artid = parentArticle(noteNode).id
     var noteIndex = i + 1;
     var content = noteNode.innerHTML;
@@ -65,18 +65,39 @@
     return note
   }
 
-  function replacementForFootnotesBlock(blockNode) {
+  function newFootnotesList(notesNode) {
     var ol = $("<ol class='references'>")
-    $(blockNode).children("note").each(
-      comp(ol.append.bind(ol), replacementForFootnote)
+    $(notesNode).children("note").each(
+      comp(ol.append.bind(ol), newFootnote)
     )
     return ol
   }
 
   function replaceFootnotes(document) {
     console.log('Replacing footnotes...')
-    $("notes").each(function(i,notes) {
-      $(notes).replaceWith(replacementForFootnotesBlock(notes))
+    $("notes").each(function(i,notesNode) {
+      $(notesNode).replaceWith(newFootnotesList(notesNode))
+    })
+  }
+
+  function newEndlink(endlinkNode) {
+    // <p class="endlink">
+    // <a target="_blank" href="http://lesswrong.com/lw/jm/the_lens_that_sees_its_flaws/"></a>
+    // </p>
+    var href = endlinkNode.innerHTML.trim()
+    var link = $(
+      "<a target='_blank' " +
+      "href='" + href + "'>"
+    )
+    var wrapper = $("<p class='endlink'>")
+    wrapper.append(link)
+    return wrapper
+  }
+
+  function replaceEndlinks(document) {
+    console.log('Replacing endlinks...')
+    $("endlink").each(function(i,endlinkNode) {
+      $(endlinkNode).replaceWith(newEndlink(endlinkNode))
     })
   }
 
@@ -86,6 +107,7 @@
       withTarget(runAll([
         replaceFootnoteRefs,
         replaceFootnotes,
+        replaceEndlinks,
       ]))
     );
   }
