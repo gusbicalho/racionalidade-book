@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Racionalidade - De AI a Zumbis</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="TODO">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+
+        <!-- MathJax -->
+        <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body class="light">
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li class="affix"><a href="./cover.html">Capa</a></li><li class="affix"><a href="./title-page.html">Folha de rosto</a></li><li class="affix"><a href="./colophon.html">Colofão</a></li><li class="affix"><a href="./preface.html" class="active">Prefácio</a></li><li class="affix"><a href="./biases_an_introduction.html">Vieses: Uma Introdução</a></li></ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title">Racionalidade - De AI a Zumbis</h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                <div id="content" class="content">
+                    <h1>Prefácio</h1>
+<p>Você tem em suas mãos uma compilação de dois anos de posts diários de um blog. Em retrospecto, eu olho para trás para esse projeto e vejo um número enorme de coisas que eu fiz completamente errado. Eu estou bem com isso. Olhar para trás e ''não'' ver um grande número de coisas que eu fiz de errado significaria que nem a minha escrita, nem o meu entendimento tinham melhorado desde 2009. ''Ops'' é o som que fazemos quando melhoramos nossas crenças e estratégias; assim, olhar para trás e não ver qualquer coisa que você fez de errado significa que você não aprendeu nada nem mudou sua mente desde então.</p>
+<p>Foi um erro não ter escrito os meus dois anos de posts com a intenção de ajudar as pessoas a se saírem melhor em suas vidas cotidianas. Eu escrevi com a intenção de ajudar as pessoas a resolver problemas grandes, difíceis, importantes, e eu escolhi problemas abstratos, que soavam impressionantes, como meus exemplos.</p>
+<p>Em retrospecto, esse foi o segundo maior erro na minha abordagem. Ele está ligado ao ''primeiro'' maior erro na minha escrita, que foi não saber que o grande problema em aprender esta valiosa forma de pensar era descobrir como a praticar, não conhecer a teoria. Eu não percebi que essa parte era a prioridade; e sobre isso eu só posso dizer &quot;Ops&quot; e &quot;Duh.&quot;</p>
+<p>Sim, às vezes essas grandes questões realmente são grandes e realmente são importantes; mas isso não muda a verdade básica de que para dominar as habilidades, você precisa praticá-las, e é mais difícil praticar usando coisas que estão mais distantes (hoje, o ''Center for Applied Rationality'' (Centro para Racionalidade Aplicada) está trabalhando em reparar este enorme erro meu de uma forma mais sistemática.)</p>
+<p>Um terceiro grande erro que eu cometi foi me concentrar demais na crença racional, e muito pouco na ação racional.</p>
+<p>O quarto maior erro que cometi foi que eu deveria ter organizado melhor o conteúdo que eu estava apresentando nas sequências. Em particular, eu deveria ter criado um wiki muito antes, e tornado mais fácil ler os posts em sequência.</p>
+<p>''Esse'' erro, pelo menos, é corrigível. No presente trabalho, Rob Bensinger reordenou os posts e os reorganizou tanto quanto possível, sem tentar reescrever todo o material (embora ele tenha reescrito um pouco dele).</p>
+<p>Meu quinto grande erro foi que eu - na forma como eu via - tentei falar francamente sobre a estupidez do que me pareciam ser idéias estúpidas. Eu tentei, sim, evitar a falácia conhecida como Bulverismo, em que você ''começa'' a discussão falando sobre o quão estúpidas as pessoas são por acreditar em algo; eu sempre discuti a questão em primeiro lugar, para só depois dizer: &quot;E, portanto, isso é estúpido&quot;. Mas, em 2009, era uma questão em aberto em minha mente se não seria importante atrair algumas pessoas que expressassem desprezo pela homeopatia. Eu achava, e ainda acho, que existe um lamentável problema de que tratar idéias com cortesia leva muitas pessoas a acreditar, em algum nível, que &quot;Nada de ruim vai acontecer comigo se eu disser que acredito isso; eu não vou perder status se eu disser que acredito em homeopatia&quot;, e que o riso de escárnio dos comediantes pode ajudar as pessoas a despertar do sonho.</p>
+<p>Hoje eu escreveria de forma mais cortês, eu acho. A falta de cortesia serviu, sim, a uma função, e eu acho que ajudou algumas pessoas; mas agora eu levo mais a sério o risco de construir comunidades onde a reação normal e esperada a opiniões diferentes tidas como de baixo status é a zombaria e o desprezo.</p>
+<p>Apesar do meu erro, eu estou feliz em dizer que meus leitores tem sido, até agora, surpreendentemente bons em ''não'' usar minha retórica como desculpa para intimidar ou menosprezar os outros (quero destacar Scott Alexander aqui em particular, que é uma pessoa mais gentil do que eu e um escritor cada vez mais sensacional sobre estes temas, e talvez mereça parte do crédito por fazer a cultura do ''Less Wrong'' ser saudável)</p>
+<p>Ser capaz de olhar para trás e dizer que você &quot;falhou&quot; significa que você tinha objetivos. Então, o que era que eu estava tentando fazer?</p>
+<p>Há uma certa maneira valiosa de pensar, que ainda não é ensinada nas escolas, nos dias de hoje. Esta certa maneira de pensar não é, de modo algum, ensinada de forma sistemática. Ela só é absorvido por pessoas que cresceram lendo livros como ''Surely You’re Joking, Mr. Feynman (O senhor está brincando, Sr. Feynman!)'' ou que têm um professor especialmente bom na escola.</p>
+<p>Reconhecidamente, esta certa maneira de pensar tem a ver com ciência, e com o método experimental. A parte da ciência onde você sai e olha para o universo em vez de apenas inventar ideias. A parte em que você diz &quot;Ops&quot; e desiste de uma teoria ruim quando os experimentos não a sustentam.</p>
+<p>Mas esta certa maneira de pensar vai além disso. É mais profunda e mais universal do que um par de óculos que você coloca quando você entra em um laboratório e tira quando você sai. Aplica-se à vida diária, embora esta parte seja mais sutil e mais difícil. Mas se você não conseguir dizer &quot;Ops&quot; e desistir quando parece que algo não está funcionando, você não vai ter escolha a não ser continuar atirando no próprio pé. Você vai ter que continuar recarregando a arma e você vai ter que continuar puxando o gatilho. Você conhece pessoas assim. E em algum lugar, em algum ponto da sua vida em que você prefere não pensar, você ''é'' uma pessoa assim. Seria bom se houvesse um certo modo de pensar que nos ajudasse a parar de fazer isso.</p>
+<p>Apesar do tamanho dos meus erros, esses dois anos de posts parecem ter ajudado um número surpreendente de pessoas em um grau surpreendente. Não funcionou de forma confiável, mas funcionou algumas vezes.</p>
+<p>Na sociedade moderna, tão pouco é ensinado das habilidades de crença racional e tomada de decisão, tão pouco da matemática e das ciências que lhes são subjacentes... que acontece que a simples leitura de um enorme &quot;despejo cerebral&quot; ''[&quot;brain-dump&quot;, no original]'' cheio de problemas em filosofia e ciência pode, sim, ser surpreendentemente bom para você. Passar por tudo isso, a partir de uma dúzia de ângulos diferentes pode, por vezes, transmitir uma idéia do ritmo central.</p>
+<p>Porque tudo, no fim das contas, é uma coisa só. Eu falei sobre grandes e importantes problemas distantes e deixei de lado a vida cotidiana, mas as leis que os regem não são realmente diferentes. Há grandes lacunas nas partes em que me foquei, e escolhi todos os exemplos errados; mas, no fim das contas, tudo é uma coisa só. Tenho orgulho de olhar para trás e dizer isto, mesmo depois de todos os erros que cometi, e todas as outras vezes que eu disse &quot;Ops&quot;...</p>
+<p>Mesmo cinco anos depois, ainda me parece que isso é melhor do que nada.</p>
+<p>— Eliezer Yudkowsky, Fevereiro de 2015</p>
+
+                </div>
+
+                <!-- Mobile navigation buttons -->
+                
+                    <a href="./colophon.html" class="mobile-nav-chapters previous">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="./biases_an_introduction.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+
+            </div>
+
+            
+                <a href="./colophon.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            
+
+            
+                <a href="./biases_an_introduction.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
+        </script>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+    </body>
+</html>

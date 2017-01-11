@@ -1,0 +1,288 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Racionalidade - De AI a Zumbis</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="TODO">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+
+        <!-- MathJax -->
+        <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body class="light">
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li class="affix"><a href="./cover.html">Capa</a></li><li class="affix"><a href="./title-page.html">Folha de rosto</a></li><li class="affix"><a href="./colophon.html">Colofão</a></li><li class="affix"><a href="./preface.html">Prefácio</a></li><li class="affix"><a href="./biases_an_introduction.html">Vieses: Uma Introdução</a></li></ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title">Racionalidade - De AI a Zumbis</h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                <div id="content" class="content">
+                    <p><img src="imgs/cover.jpg" alt="Capa" /></p>
+<div style="text-align: center">
+<div style="font-size:4em">Racionalidade</div>
+<div style="font-size:3em">De AI a Zumbis</div>
+<div style="font-size:2em;margin:1.5em 0 2em">Eliezer Yudkowsky</div>
+<p><img src="imgs/miri-logo.png" alt="MIRI" /></p>
+</div>
+<div style="text-align:center">
+<p>Eliezer Yudkowsky é Pesquisador no Machine Intelligence Research Institute
+(Instituto de Pesquisa de Inteligência de Máquina).</p>
+<p>Escrito por Eliezer Yudkowsky.</p>
+<p>Publicado em 2015
+Machine Intelligence Research Institute
+Berkeley 94704
+Estados Unidos da América
+intelligence.org</p>
+<p>Disponibilizado sob os termos da licença Creative Commons Atribuição-Uso Não Comercial-Compartilhamento pela mesma licença 3.0 (não adaptada).
+CC BY-NC-SA 3.0</p>
+<p>ISBN-10: 1-939311-15-2
+ISBN-13: 978-1-939311-15-3 (epub)</p>
+<p>O Machine Intelligence Research Institute agradece ao generoso apoio de todos os envolvidos na publicação deste livro, e aos doadores que financiam o trabalho do MIRI em geral.</p>
+<p>Capa feita por Tim Woolley.</p>
+<div>***</div>
+<p>Tradução para o português:</p>
+<table>
+    <tr><td>Gustavo Bicalho (coord.)</td>
+        <td>Silziane Carvalho (coord.)</td></tr>
+    <tr><td>Anderson L. R. Calixto</td>
+        <td>Arthur Helfstein Fragoso</td></tr>
+    <tr><td>Fabiane Pohlmann</td>
+        <td>Graciela Kunrath Lima</td></tr>
+    <tr><td>Israel Meneses Santos Vilas Bôas</td>
+        <td>Leo H. M. Arruda</td></tr>
+</table>
+<p>Acompanhe a tradução em:</p>
+<p><a href="https://github.com/gusbicalho/racionalidade-book">https://github.com/gusbicalho/racionalidade-book</a>
+<a href="https://www.facebook.com/groups/452897608198563/">https://www.facebook.com/groups/452897608198563/</a></p>
+</div>
+<h1>Prefácio</h1>
+<p>Você tem em suas mãos uma compilação de dois anos de posts diários de um blog. Em retrospecto, eu olho para trás para esse projeto e vejo um número enorme de coisas que eu fiz completamente errado. Eu estou bem com isso. Olhar para trás e ''não'' ver um grande número de coisas que eu fiz de errado significaria que nem a minha escrita, nem o meu entendimento tinham melhorado desde 2009. ''Ops'' é o som que fazemos quando melhoramos nossas crenças e estratégias; assim, olhar para trás e não ver qualquer coisa que você fez de errado significa que você não aprendeu nada nem mudou sua mente desde então.</p>
+<p>Foi um erro não ter escrito os meus dois anos de posts com a intenção de ajudar as pessoas a se saírem melhor em suas vidas cotidianas. Eu escrevi com a intenção de ajudar as pessoas a resolver problemas grandes, difíceis, importantes, e eu escolhi problemas abstratos, que soavam impressionantes, como meus exemplos.</p>
+<p>Em retrospecto, esse foi o segundo maior erro na minha abordagem. Ele está ligado ao ''primeiro'' maior erro na minha escrita, que foi não saber que o grande problema em aprender esta valiosa forma de pensar era descobrir como a praticar, não conhecer a teoria. Eu não percebi que essa parte era a prioridade; e sobre isso eu só posso dizer &quot;Ops&quot; e &quot;Duh.&quot;</p>
+<p>Sim, às vezes essas grandes questões realmente são grandes e realmente são importantes; mas isso não muda a verdade básica de que para dominar as habilidades, você precisa praticá-las, e é mais difícil praticar usando coisas que estão mais distantes (hoje, o ''Center for Applied Rationality'' (Centro para Racionalidade Aplicada) está trabalhando em reparar este enorme erro meu de uma forma mais sistemática.)</p>
+<p>Um terceiro grande erro que eu cometi foi me concentrar demais na crença racional, e muito pouco na ação racional.</p>
+<p>O quarto maior erro que cometi foi que eu deveria ter organizado melhor o conteúdo que eu estava apresentando nas sequências. Em particular, eu deveria ter criado um wiki muito antes, e tornado mais fácil ler os posts em sequência.</p>
+<p>''Esse'' erro, pelo menos, é corrigível. No presente trabalho, Rob Bensinger reordenou os posts e os reorganizou tanto quanto possível, sem tentar reescrever todo o material (embora ele tenha reescrito um pouco dele).</p>
+<p>Meu quinto grande erro foi que eu - na forma como eu via - tentei falar francamente sobre a estupidez do que me pareciam ser idéias estúpidas. Eu tentei, sim, evitar a falácia conhecida como Bulverismo, em que você ''começa'' a discussão falando sobre o quão estúpidas as pessoas são por acreditar em algo; eu sempre discuti a questão em primeiro lugar, para só depois dizer: &quot;E, portanto, isso é estúpido&quot;. Mas, em 2009, era uma questão em aberto em minha mente se não seria importante atrair algumas pessoas que expressassem desprezo pela homeopatia. Eu achava, e ainda acho, que existe um lamentável problema de que tratar idéias com cortesia leva muitas pessoas a acreditar, em algum nível, que &quot;Nada de ruim vai acontecer comigo se eu disser que acredito isso; eu não vou perder status se eu disser que acredito em homeopatia&quot;, e que o riso de escárnio dos comediantes pode ajudar as pessoas a despertar do sonho.</p>
+<p>Hoje eu escreveria de forma mais cortês, eu acho. A falta de cortesia serviu, sim, a uma função, e eu acho que ajudou algumas pessoas; mas agora eu levo mais a sério o risco de construir comunidades onde a reação normal e esperada a opiniões diferentes tidas como de baixo status é a zombaria e o desprezo.</p>
+<p>Apesar do meu erro, eu estou feliz em dizer que meus leitores tem sido, até agora, surpreendentemente bons em ''não'' usar minha retórica como desculpa para intimidar ou menosprezar os outros (quero destacar Scott Alexander aqui em particular, que é uma pessoa mais gentil do que eu e um escritor cada vez mais sensacional sobre estes temas, e talvez mereça parte do crédito por fazer a cultura do ''Less Wrong'' ser saudável)</p>
+<p>Ser capaz de olhar para trás e dizer que você &quot;falhou&quot; significa que você tinha objetivos. Então, o que era que eu estava tentando fazer?</p>
+<p>Há uma certa maneira valiosa de pensar, que ainda não é ensinada nas escolas, nos dias de hoje. Esta certa maneira de pensar não é, de modo algum, ensinada de forma sistemática. Ela só é absorvido por pessoas que cresceram lendo livros como ''Surely You’re Joking, Mr. Feynman (O senhor está brincando, Sr. Feynman!)'' ou que têm um professor especialmente bom na escola.</p>
+<p>Reconhecidamente, esta certa maneira de pensar tem a ver com ciência, e com o método experimental. A parte da ciência onde você sai e olha para o universo em vez de apenas inventar ideias. A parte em que você diz &quot;Ops&quot; e desiste de uma teoria ruim quando os experimentos não a sustentam.</p>
+<p>Mas esta certa maneira de pensar vai além disso. É mais profunda e mais universal do que um par de óculos que você coloca quando você entra em um laboratório e tira quando você sai. Aplica-se à vida diária, embora esta parte seja mais sutil e mais difícil. Mas se você não conseguir dizer &quot;Ops&quot; e desistir quando parece que algo não está funcionando, você não vai ter escolha a não ser continuar atirando no próprio pé. Você vai ter que continuar recarregando a arma e você vai ter que continuar puxando o gatilho. Você conhece pessoas assim. E em algum lugar, em algum ponto da sua vida em que você prefere não pensar, você ''é'' uma pessoa assim. Seria bom se houvesse um certo modo de pensar que nos ajudasse a parar de fazer isso.</p>
+<p>Apesar do tamanho dos meus erros, esses dois anos de posts parecem ter ajudado um número surpreendente de pessoas em um grau surpreendente. Não funcionou de forma confiável, mas funcionou algumas vezes.</p>
+<p>Na sociedade moderna, tão pouco é ensinado das habilidades de crença racional e tomada de decisão, tão pouco da matemática e das ciências que lhes são subjacentes... que acontece que a simples leitura de um enorme &quot;despejo cerebral&quot; ''[&quot;brain-dump&quot;, no original]'' cheio de problemas em filosofia e ciência pode, sim, ser surpreendentemente bom para você. Passar por tudo isso, a partir de uma dúzia de ângulos diferentes pode, por vezes, transmitir uma idéia do ritmo central.</p>
+<p>Porque tudo, no fim das contas, é uma coisa só. Eu falei sobre grandes e importantes problemas distantes e deixei de lado a vida cotidiana, mas as leis que os regem não são realmente diferentes. Há grandes lacunas nas partes em que me foquei, e escolhi todos os exemplos errados; mas, no fim das contas, tudo é uma coisa só. Tenho orgulho de olhar para trás e dizer isto, mesmo depois de todos os erros que cometi, e todas as outras vezes que eu disse &quot;Ops&quot;...</p>
+<p>Mesmo cinco anos depois, ainda me parece que isso é melhor do que nada.</p>
+<p>— Eliezer Yudkowsky, Fevereiro de 2015</p>
+<article id="art-intro">
+<hgroup>
+<h1>Vieses: Uma introdução</h1>
+<p>por Rob Bensinger</p>
+</hgroup>
+<p>Não é segredo. Por alguma razão, no entanto, raramente surge nas conversas, e poucas pessoas estão perguntando o que devemos fazer sobre isso. É um padrão, escondido invisível por trás de todos os nossos triunfos e fracassos, invisível por trás dos nossos olhos. O que é?</p>
+<p>Imagine colocar seu braço em uma urna que contém setenta bolas brancas e trinta bolas vermelhas, e retirar dez bolas misteriosas. Talvez três das dez bolas sejam vermelhas, e você vai adivinhar corretamente quantas esferas vermelhas, no total, havia na urna. Ou talvez aconteça de você pegar quatro bolas vermelhas, ou algum outro número. Então você provavelmente vai errar o número total.</p>
+<p>Este erro aleatório é o preço do conhecimento incompleto, e, para um erro, até que não é tão ruim. <em>Na média</em>, suas estimativas não serão incorretas, e quanto mais você aprender, menor o seu erro tenderá a ser.</p>
+<p>Por outro lado, suponhamos que as bolas brancas fossem mais pesadas, e afundassem para o fundo de urna. Então a sua amostra poderia ser pouco representativa <em>em uma direção consistente</em>.</p>
+<p><em>Esse</em> tipo de erro é chamado de “viés estatístico”. Quando o seu método de aprendizagem do mundo é tendencioso, aprender mais pode não ajudar. Adquirir mais dados podem até mesmo <em>piorar</em> consistentemente uma previsão tendenciosa.</p>
+<p>Se você está acostumado a ter em alta estima o conhecimento e a investigação, esta é uma perspectiva assustadora. Se queremos ter certeza de que aprender mais vai nos ajudar, em vez de nos deixar pior do que estávamos antes, precisamos descobrir e corrigir os desvios em nossos dados.</p>
+<p>A ideia de <em>viés cognitivo</em> em psicologia funciona de forma análoga. Um viés cognitivo é um erro sistemático na <em>maneira como pensamos</em>, ao contrário de um erro aleatório ou um que é apenas causado por nossa ignorância. Enquanto um viés estatístico distorce uma amostra de modo que ela se aproxime menos estreitamente de uma população maior, vieses cognitivos distorcem nossas <em>crenças</em>, de modo que elas representam os fatos com menor precisão, e distorcem nossa <em>tomada de decisão</em>, fazendo com que ela seja menos confiável para alcançar nossos objetivos.</p>
+<p>Talvez você tenha um viés de otimismo, e descubra que as bolas vermelhas podem ser usadas para tratar uma doença tropical rara que aflige seu irmão. Então, você poderá superestimar o número de bolas vermelhas contidas na urna porque você <em>deseja</em> que a maioria das bolas fossem vermelhas. Aqui, não é a sua amostra que é enviesada. <em>Você</em> é que é enviesado.</p>
+<p>Agora que estamos falando de <em>pessoas</em> enviesadas, no entanto, temos de ter cuidado. Normalmente, quando nós chamamos indivíduos ou grupos de “tendenciosos” ou “enviesados”, nós fazemos isso para repreendê-los por serem injustos ou parciais. Um viés <em>cognitivo</em> é um bicho completamente diferente. Vieses cognitivos são uma parte fundamental de como os seres humanos pensam em geral, não o tipo de defeito que decorre de uma educação péssima ou uma personalidade ruim.<a id="nref-1"></a><a href="#n-1">1</a></p>
+<p>Um viés cognitivo é uma forma sistemática pela qual seus padrões inatos do pensamento ficam aquém da verdade (ou de algum outro objetivo atingível, como a felicidade). Como os vieses estatísticos, os vieses cognitivos podem distorcer nossa visão da realidade, nem sempre podem ser consertados simplesmente recolhendo mais dados, e seus efeitos podem se acumular com o tempo. Mas quando o instrumento de medição descalibrado que você está tentando consertar é <em>você</em>, eliminar o viés é um desafio único.</p>
+<p>Ainda assim, esse é um lugar óbvio para começar. Porque, se você não pode confiar em seu cérebro, como você pode confiar em qualquer outra coisa?</p>
+<p>Seria útil ter um nome para este projeto de superação de vieses cognitivos, e de superação de todas as espécies de erro pelas quais nossas mentes possam vir a prejudicar a si mesmas.</p>
+<p>Poderíamos chamar esse projeto de qualquer coisa que quiséssemos. Por ora, porém, eu acredito que “racionalidade” é um nome tão bom quanto qualquer outro.</p>
+<h2>Sentimentos racionais</h2>
+<p>Nos filmes de Hollywood, ser “racional” normalmente significa que você é um estoico severo e hiperintelectual. Pense no Spock de <em>Star Trek</em>, que “racionalmente” suprime suas emoções, “racionalmente” se recusa a confiar em intuições ou impulsos, e é facilmente confundido e passado para trás ao encontrar um oponente errático ou “irracional”.<a id="nref-2"></a><a href="#n-2">2</a></p>
+<p>Há uma noção completamente diferente de “racionalidade”, estudada por matemáticos, psicólogos e cientistas sociais. A grosso modo, é a ideia de <em>fazer o melhor que pode com o que você tem</em>. Uma pessoa racional, não importa o quão desnorteada e perdida esteja, forma as melhores crenças possíveis com as evidências que têm. Uma pessoa racional, não importa o quão terrível a situação em que ela esteja, faz as melhores escolhas que pode para melhorar suas chances de sucesso.</p>
+<p>Racionalidade do mundo real não se trata de ignorar suas emoções e intuições. Para um ser humano, a racionalidade muitas vezes significa tornar-se mais autoconsciente sobre seus sentimentos, para que possa levá-los em conta em suas decisões.</p>
+<p>A racionalidade pode até significar saber quando <em>não</em> pensar demais. Ao escolher um cartaz para colocar em sua parede, ou ao prever o resultado de um jogo de basquete, observou-se que participantes de experimentos se davam <em>pior</em> caso analisassem cuidadosamente as suas razões.<a id="nref-3"></a><a href="#n-3">3</a><a id="nref-4"></a><a href="#n-4">4</a> Existem alguns problemas onde a deliberação consciente nos serve melhor, e outros em que julgamentos instantâneos nos servem melhor.</p>
+<p>Os psicólogos que trabalham em teorias de duplo processo traçam uma distinção entre os processos cerebrais do “Sistema 1” (cognição rápida, implícita, associativa, automática) e os do “Sistema 2” (cognição lenta, explícita, intelectual, controlada).<a id="nref-5"></a><a href="#n-5">5</a> O <em>estereótipo</em> é que racionalistas confiam inteiramente no Sistema 2, desconsiderando seus sentimentos e impulsos. Olhando para além do estereótipo, alguém que estivesse sendo realmente racional – realmente alcançando seus objetivos, realmente mitigando os danos de seus vieses cognitivos – dependeria fortemente dos hábitos e intuições do Sistema 1, nos casos em que eles fossem confiáveis.</p>
+<p>Infelizmente, o Sistema 1 sozinho parece ser um guia <em>terrível</em> para decidir “quando devo confiar no Sistema 1?” Nossas intuições destreinadas não nos avisam quando devemos parar de confiar nelas. O <em>sentimento</em> é o <em>mesmo</em>, estando você enviesado ou não.<a id="nref-6"></a><a href="#n-6">6</a></p>
+<p>Por outro lado, como observa o economista comportamental Dan Ariely: somos <em>previsivelmente</em> irracionais. Nós fazemos besteiras sempre das mesmas formas, repetida e sistematicamente.</p>
+<p>Embora não possamos usar nossa intuição para descobrir quando estamos sucumbindo a um viés cognitivo, talvez sejamos capazes de usar as ciências da mente.</p>
+<h2>As Muitas Faces do Viés</h2>
+<p>Para resolver problemas, nossos cérebros evoluíram para empregar heurísticas cognitivas – atalhos rudimentares que obtêm a resposta certa frequentemente, mas nem sempre. Vieses cognitivos surgem quando as aproximações feitas por estas heurísticas produzem um erro relativamente consistente e bem delimitado.</p>
+<p>A heurística da representatividade, por exemplo, é a nossa tendência de avaliar fenômenos segundo o quão representativos de várias categorias eles são. Isso pode levar a vieses, como a <em>falácia da conjunção</em>. Tversky e Kahneman descobriram que participantes de um experimento consideravam menos provável que um tenista habilidoso iria “perder o primeiro set” do que que ele iria “perder o primeiro set, mas ganhar o jogo”.<a id="nref-7"></a><a href="#n-7">7</a> Ganhar de virada parece mais <em>típico</em> de um jogador habilidoso, por isso superestimamos a probabilidade dessa narrativa complicada-mas-que-soa-razoável, em comparação com a probabilidade de um cenário estritamente mais simples.</p>
+<p>A heurística da representatividade também pode contribuir para a <em>negligência da taxa-base</em>, em que baseamos nossas decisões em quão intuitivamente “normal” uma combinação de atributos é, negligenciando o quão comum cada atributo é na população em geral.<a id="nref-8"></a><a href="#n-8">8</a> É mais provável que Steve seja um bibliotecário tímido, ou que ele seja um vendedor tímido? A maioria das pessoas respondem a esse tipo de pergunta pensando sobre se “tímido” corresponde a seus estereótipos dessas profissões. Eles não levam em consideração o quão mais comuns os vendedores são que os bibliotecários — setenta e cinco vezes mais comuns, nos Estados Unidos<a id="nref-9"></a><a href="#n-9">9</a>.</p>
+<p>Outros exemplos de vieses incluem a <em>negligência da duração</em> (avaliar experiências sem levar em conta o tempo que elas duraram), a <em>falácia do custo irrecuperável</em> (sentir-se comprometidos com coisas nas quais você despendeu recursos no passado, quando você deveria limitar suas perdas e seguir em frente), e o <em>viés de confirmação</em> (dar mais peso às evidências que confirmam o que já acreditamos)<a id="nref-10"></a><a href="#n-10">10</a><a id="nref-11"></a><a href="#n-11">11</a>.</p>
+<p>Saber sobre um viés, no entanto, raramente é suficiente para protegê-lo dele. Em um estudo sobre a <em>cegueira a vieses</em>, sujeitos experimentais previram que, se eles soubessem que uma pintura era o trabalho de um artista famoso, eles teriam mais dificuldade para avaliar, de forma neutra, a qualidade da pintura. E, de fato, os indivíduos que foram informados o autor de uma pintura e solicitados a avaliar a sua qualidade exibiram o exato viés que eles mesmos haviam previsto, em comparação com um grupo de controle. Quando perguntados <em>depois</em>, no entanto, os mesmos indivíduos afirmaram que suas avaliações das pinturas tinham sido objetivas e não afetadas pelo viés – em todos os grupos!<a id="nref-12"></a><a href="#n-12">12</a><a id="nref-13"></a><a href="#n-13">13</a></p>
+<p>Temos uma aversão especial a pensar que nossos pontos de vista são imprecisos em comparação com os pontos de vista dos outros. Mesmo quando identificamos corretamente os vieses dos outros, temos um <em>ponto cego para vieses</em> especial quando se trata de nossas próprias falhas.<a id="nref-14"></a><a href="#n-14">14</a> Nós não conseguimos detectar quaisquer “pensamentos que parecem enviesados” quando refletimos internamente, e, assim, concluímos que somos simplesmente mais objetivos do que todos as outras pessoas<a id="nref-15"></a><a href="#n-15">15</a>.</p>
+<p>Estudar vieses pode, na verdade, torná-lo <em>mais</em> vulnerável ao excesso de confiança e ao viés de confirmação, quando você começa a ver a influência dos vieses cognitivos em todos ao seu redor – em todos, exceto em si mesmo. E o ponto cego, ao contrário de muitos vieses, é <em>especialmente grave</em> entre as pessoas que são <em>especialmente inteligentes, atenciosas, e de mente aberta</em> <a id="nref-16"></a><a href="#n-16">16</a><a id="nref-17"></a><a href="#n-17">17</a>.</p>
+<p>Isso é motivo de preocupação.</p>
+<p>Ainda assim... parece que devemos ser capazes de melhorar. Sabe-se que podemos reduzir a negligência da taxa-base ao pensar em probabilidades como frequências de objetos ou eventos. Podemos minimizar a negligência da duração, direcionando mais atenção à duração e representando-a graficamente<a id="nref-18"></a><a href="#n-18">18</a>. As pessoas variam em quão fortemente exibem diferentes vieses, portanto deve haver uma série de formas ainda desconhecidas de influenciar o quão enviesados nós somos.</p>
+<p>Se quisermos melhorar, no entanto, não é suficiente nos debruçarmos sobre as listas de vieses cognitivos. A abordagem para superar vieses em <em>Racionalidade: De AI a Zumbis</em> é comunicar uma compreensão sistemática de por que o raciocínio correto funciona, e de como o cérebro fica aquém dele. Na medida em que este livro alcança esse objetivo, a sua abordagem pode ser comparada com o descrito por Serfas, que nota que “anos de experiência de trabalho envolvendo finanças” não afetaram a suscetibilidade das pessoas ao viés do custo irrecuperável, ao passo que “o número cursos de contabilidade frequentados” ajudava.</p>
+<blockquote>
+<p>Como consequência, pode ser necessário distinguir entre experiência e perícia, perícia significando “o desenvolvimento de um princípio esquemático que envolve a compreensão conceitual do problema”, a qual, por sua vez, permite que o tomador de decisão reconheça determinados vieses. No entanto, usar a perícia como contramedida exige mais do que apenas estar familiarizado com o conteúdo da situação ou ser um especialista em um domínio específico. Exige que a pessoa entenda completamente a lógica subjacente do respectivo viés, seja capaz de detectá-lo no ambiente específico, e também que tenha à mão as ferramentas adequadas para combater o viés<a id="nref-19"></a><a href="#n-19">19</a>.</p>
+</blockquote>
+<p>O objetivo deste livro é o de estabelecer as bases para a criação de uma “perícia” da racionalidade. Isso significa adquirir uma compreensão profunda da estrutura de um problema muito geral: o viés humano, o autoengano, e os mil caminhos pelos quais o pensamento sofisticado pode derrotar a si mesmo.</p>
+<h2>Uma palavra sobre este texto</h2>
+<p><em>Racionalidade: De AI a Zumbis</em> começou sua vida como uma série de ensaios de Eliezer Yudkowsky, publicados entre 2006 e 2009 no blog de economia <em>Overcoming Bias [Superando o Viés]</em> e no blog comunitário dele derivado <em>Less Wrong</em>. Eu trabalhei com Yudkowsky durante o ano passado no Machine Intelligence Research Institute (MIRI), uma organização sem fins lucrativos fundada por ele em 2000 para estudar os requisitos teóricos para uma inteligência artificial (IA <em>[ou AI, na sigla em inglês]</em>) mais inteligente do que a humana.</p>
+<p>Ler seus posts no blog fez com que me interessasse pelo seu trabalho. Ele me impressionou com sua capacidade de comunicar de forma concisa compreensões que eu levara anos de estudo de filosofia analítica para internalizar. Na tentativa de reconciliar o espírito anárquico e cético da ciência com uma abordagem rigorosa e sistemática à indagação, Yudkowsky tenta não apenas refutar, mas <em>entender</em> os muitos passos em falso e becos sem saída que a má filosofia (e a má falta-de-filosofia) pode produzir. Ao ajudar a organizar estes ensaios em um livro, minha esperança é tornar mais fácil mergulhar neles, e mais fácil apreciá-los como um todo coerente.</p>
+<p>O manual de racionalidade resultante é frequentemente pessoal e irreverente, tendo como pontos de partida, por exemplo, as experiências de Yudkowsky com sua mãe (uma psiquiatra) e pai (um físico) judeus ortodoxos e conversas em salas de chat e listas de discussão. Os leitores que conhecem Yudkowsky de <em>Harry Potter e os Métodos da Racionalidade</em>, sua abordagem cientificamente orientada da série <em>Harry Potter</em>, de J.K. Rowling, vão reconhecer a mesma iconoclastia irreverente, e muitos dos mesmos conceitos fundamentais.</p>
+<p>Estilisticamente, os ensaios deste livro percorrem toda a gama de “livro didático divertido” a “compêndio de vinhetas inteligentes” a “manifesto rebelde”, e o conteúdo é correspondentemente variado. <em>Racionalidade: De AI a Zumbis</em> congrega centenas de posts de Yudkowsky em vinte e seis “sequências”, séries de posts ligados tematicamente, que funcionam como capítulos. As sequências, por sua vez, são agrupadas em seis livros, abrangendo os seguintes tópicos:</p>
+<p>Livro 1 – <strong>Mapa e território</strong>. O que é uma crença, e que faz com que algumas crenças funcionem melhor do que os outras? Essas quatro sequências explicam as noções <em>Bayesianas</em> de racionalidade, crença e evidência. Um tema comum: as coisas que chamamos de “explicações” ou “teorias” podem nem sempre funcionar como <em>mapas</em> de navegação do mundo. Como resultado, corremos o risco de misturar nossos mapas mentais com os outros objetos em nossa caixa de ferramentas.</p>
+<p>Livro 2 – <strong>Como alterar sua mente de verdade</strong>. Essa tal de verdade parece bastante útil. Por que, então, nós insistimos em tirar conclusões precipitadas, fincar nossos pés, e recapitular os mesmos erros? Por que somos tão <em>ruins</em> em adquirir crenças precisas, e como podemos ser melhores? Estas sete sequências discutem raciocínio motivado e viés de confirmação, com um foco especial em espécies de autoengano difíceis de reconhecer e na armadilha de “usar argumentos como soldados.”</p>
+<p>Livro 3 – <strong>A máquina no fantasma</strong>. Por que nós <em>não</em> evoluímos para ser mais racionais? Mesmo levando em conta as limitações de recursos, parece que poderíamos estar ganhando muito mais conhecimento com as evidências que temos disponíveis. Para obter uma imagem realista de como e porque nossas mentes executam as suas funções biológicas, precisamos abrir o capô e ver como funciona a evolução, e como nossos cérebros funcionam, com mais precisão. Estas três sequências esclarecem como até filósofos e cientistas podem errar quando confiam em noções intuitivas, não técnicas, sobre a evolução ou a psicologia. Ao localizar nossas mentes dentro de um espaço maior de sistemas guiados por objetivos, podemos identificar algumas das peculiaridades do raciocínio humano e compreender como tais sistemas podem “perder o seu propósito”.</p>
+<p>Livro 4 – <strong>Mera realidade</strong>. Em que tipo de mundo vivemos? Qual é o nosso lugar nesse mundo? Baseando-se nos exemplos das sequências anteriores de como modelos evolutivos e cognitivos funcionam, estas seis sequências exploram a natureza da mente e das leis da física. Além de aplicar e generalizar lições anteriores sobre mistérios científicos e parcimônia, esses ensaios levantam novas questões sobre o papel que a ciência deve desempenhar na racionalidade individual.</p>
+<p>Livro 5 – <strong>Mera bondade</strong>. O que torna algo <em>valioso</em> – moralmente, ou esteticamente, ou prudencialmente? Essas três sequências perguntam como podemos justificar, revisar, e naturalizar nossos valores e desejos. O objetivo é encontrar uma maneira de compreender os nossos objetivos sem comprometer os nossos esforços para realmente alcançá-los. Aqui, o maior desafio é saber quando confiar em seus confusos e complexos impulsos sobre o que é certo e errado caso a caso, e quando substituí-los por princípios simples e sem exceção.</p>
+<p>Livro 6 – <strong>Ficando mais forte</strong>. Como indivíduos e comunidades podem colocar tudo isso em prática? Estas três sequências começam com um relato autobiográfico dos maiores erros filosóficos do próprio Yudkowsky, com conselhos sobre como ele acha que os outros podem se sair melhor. O livro termina com recomendações para o desenvolvimento de currículos de racionalidade aplicada baseada em evidências, e para a formação de grupos e instituições para apoiar os estudantes interessados, educadores, pesquisadores e amigos.</p>
+<p>As sequências são complementadas com “interlúdios”, ensaios extraídos do site pessoal de Yudkowsky, <a href="http://www.yudkowsky.net/">http://www.yudkowsky.net</a>. Eles se ligam às sequências de várias maneiras; por exemplo, <em>As Doze Virtudes da Racionalidade</em> resume poeticamente muitas das lições de <em>Racionalidade: De AI a Zumbis</em>, e é frequentemente citado em outros ensaios.</p>
+<p>Clicar no asterisco ao final de um ensaio irá levá-lo à sua versão original no <em>Less Wrong</em> (onde você pode fazer comentários) ou no site de Yudkowsky. Você também pode consultar um glossário da terminologia de <em>Racionalidade: De AI a Zumbis</em> online, em <a href="http://wiki.lesswrong.com/wiki/RAZ_Glossary">http://wiki.lesswrong.com/wiki/RAZ_Glossary</a>.</p>
+<h2>Mapa e território</h2>
+<p>Este, o primeiro livro, começa com uma sequência sobre vieses cognitivos: “Previsivelmente errado”. O resto do livro não vai se ater apenas a este tema; maus hábitos e más ideias importam, mesmo quando eles surgem do conteúdo de nossas mentes, e não da estrutura. Assim, erros tanto evoluídos quanto inventados serão expostos nessas sequências, começando com uma discussão, em “Falsas Crenças”, sobre os modos como as expectativas de uma pessoa podem se desligar das crenças por ela professadas.</p>
+<p>Um relato da irracionalidade também estaria incompleto se não fornecesse qualquer teoria sobre como a <em>racionalidade</em> funciona, ou se a sua “teoria” consistisse apenas em obviedades vagas, sem nenhum mecanismo explicativo preciso. A sequência “Percebendo Confusão” investiga por que é útil basear seu comportamento em expectativas “racionais”, e qual é a sensação de se fazer isso.</p>
+<p>A seguir, “Respostas misteriosas” pergunta se a ciência resolve esses problemas por nós. Os cientistas baseiam seus modelos em experimentos reproduzíveis, não em especulações ou boatos. E a ciência tem um excelente histórico, comparada com anedotas, religião, e... basicamente todo o resto. Será que, mesmo assim, ainda precisamos nos preocupar com “falsas” crenças, viés de confirmação, viés de retrospectiva e similares, quando estamos trabalhando com uma comunidade de pessoas que buscam <em>explicar</em> fenômenos, e não apenas contar histórias atraentes?</p>
+<p>Esta sequência é seguida por <em>A Simples Verdade</em>, uma alegoria independente sobre a natureza do conhecimento e da crença.</p>
+<p>É o viés cognitivo, no entanto, que fornece a visão mais clara e direta sobre a matéria da nossa psicologia, na forma de nossas heurísticas e da lógica das nossas limitações. É com o viés que vamos começar.</p>
+<p>Há uma passagem no <em>Zhuangzi</em>, um texto filosófico proto-taoísta, que diz: “A armadilha para peixes existe por causa do peixe; uma vez que você tenha obtido o peixe, você pode esquecer a armadilha”.<a id="nref-20"></a><a href="#n-20">20</a></p>
+<p>Eu convido você a explorar este livro com esse espírito. Use-o como você usaria uma armadilha para peixes, tendo sempre em mente o objetivo que você tem para ela. Leve com você o que puder usar, enquanto continuar sendo útil; descarte o resto. E que o seu propósito lhe sirva bem.</p>
+<h2>Agradecimentos</h2>
+<p>Eu sou estupendamente grato a Nate Soares, Elizabeth Tarleton, Paul Crowley, Brienne Strohl, Adam Freese, Helen Toner e dezenas de voluntários por revisar partes deste livro.</p>
+<p>Agradecimentos especiais e sinceros para Alex Vermeer, que dirigiu este livro até o fim, e Tsvi Benson-Tilsen, que vasculhou o livro inteiro para garantir a sua legibilidade e consistência.</p>
+<h2>Notas</h2>
+<ol>
+<li>
+<p><a id="n-1"></a><a href="#nref-1">↑</a> A ideia de viés pessoal, viés da imprensa etc. se assemelha ao viés estatístico no fato de ser um <em>erro</em>. Outras formas de generalizar a ideia de “viés” se focam em sua associação com a não-aleatoriedade. No aprendizado de máquina, por exemplo, um viés <em>indutivo</em> é apenas o conjunto de suposições que um agente usa para derivar previsões de um conjunto de dados. Aqui, o agente é “enviesado” no sentido de que ele foi orientado em uma direção específica; mas, uma vez que aquela direção pode ser a <em>verdade</em>, não é uma coisa ruim para um agente ter um viés indutivo. É valioso e necessário. Isto distingue o “viés” indutivo muito claramente dos outros tipos de viés.</p>
+</li>
+<li>
+<p><a id="n-2"></a><a href="#nref-2">↑</a> Uma triste coincidência: Leonard Nimoy, o ator que interpretou Spock, faleceu poucos dias antes do lançamento deste livro. Apesar de citar seu personagem como um exemplo clássico da falsa “racionalidade de Hollywood”, não queremos desrespeitar, de forma alguma, a memória de Nimoy.</p>
+</li>
+<li>
+<p><a id="n-3"></a><a href="#nref-3">↑</a> Timothy D. Wilson et al., “Introspecting About Reasons Can Reduce Post-choice Satisfaction,” <em>Personality and Social Psychology Bulletin</em> 19 (1993): 331–331.</p>
+</li>
+<li>
+<p><a id="n-4"></a><a href="#nref-4">↑</a> Jamin Brett Halberstadt and Gary M. Levine, “Effects of Reasons Analysis on the Accuracy of Predicting Basketball Games,” <em>Journal of Applied Social Psychology</em> 29, no. 3 (1999): 517–530.</p>
+</li>
+<li>
+<p><a id="n-5"></a><a href="#nref-5">↑</a> Keith E. Stanovich and Richard F. West, “Individual Differences in Reasoning: Implications for the Rationality Debate?,” <em>Behavioral and Brain Sciences</em> 23, no. 5 (2000): 645–665, <a href="http://journals.cambridge.org/abstract_S0140525X00003435">http://journals.cambridge.org/abstract_S0140525X00003435</a>.</p>
+</li>
+<li>
+<p><a id="n-6"></a><a href="#nref-6">↑</a> Timothy D. Wilson, David B. Centerbar, and Nancy Brekke, “Mental Contamination and the Debiasing Problem,” in <em>Heuristics and Biases: The Psychology of Intuitive Judgment</em>, ed. Thomas Gilovich, Dale Griffin, and Daniel Kahneman (Cambridge University Press, 2002).</p>
+</li>
+<li>
+<p><a id="n-7"></a><a href="#nref-7">↑</a> Amos Tversky and Daniel Kahneman, “Extensional Versus Intuitive Reasoning: The Conjunction Fallacy in Probability Judgment,” <em>Psychological Review</em> 90, no. 4 (1983): 293–315, <span class="doi">doi</span>:10.1037/0033-295X.90.4.293.</p>
+</li>
+<li>
+<p><a id="n-8"></a><a href="#nref-8">↑</a> Richards J. Heuer, <em>Psychology of Intelligence Analysis</em> (Center for the Study of Intelligence, Central Intelligence Agency, 1999).</p>
+</li>
+<li>
+<p><a id="n-9"></a><a href="#nref-9">↑</a> Wayne Weiten, Psychology: Themes and Variations, Briefer Version, Eighth Edition (Cengage Learning, 2010).</p>
+</li>
+<li>
+<p><a id="n-10"></a><a href="#nref-10">↑</a> Raymond S. Nickerson, “Confirmation Bias: A Ubiquitous Phenomenon in Many Guises,” <em>Review of General Psychology</em> 2, no. 2 (1998): 175.</p>
+</li>
+<li>
+<p><a id="n-11"></a><a href="#nref-11">↑</a> <em>Negligência da probabilidade</em> é um outro viés cognitivo. Nos meses e anos que se seguiram ao 11 de setembro, muitas pessoas optaram por dirigir longas distâncias ao invés de voar. Sequestro não era algo <em>provável</em>, mas agora parecia que era uma carta sobre a mesa; a mera possibilidade de sequestro impactava as decisões enormemente. Ao confiar em um raciocínio preto-e-branco (carros e aviões são “seguros” ou “inseguros”, ponto final), as pessoas na verdade se colocavam em um perigo muito maior. Embora eles devessem ter pesado a probabilidade de morrer em uma viagem de carro através do país contra a probabilidade de morrer em um vôo através do país – a primeira morte é centenas de vezes mais provável –, eles contaram com o seu sentimento geral de preocupação e ansiedade (a heurística do afeto). Podemos ver o mesmo padrão de comportamento em crianças que, ao ouvir os argumentos a favor e contra a segurança dos cintos de segurança, vão e voltam em sua opinião sobre se cintos de segurança são uma ideia completamente boa ou completamente ruim, em vez de tentar comparar os pesos das considerações a favor e contra<a id="nref-21"></a><a href="#n-21">21</a>.<br />
+Alguns outros exemplos de vieses são: a <em>regra do pico/final</em> (avaliar eventos relembrados com base em seu momento mais intenso, e em como eles acabaram); <em>ancoragem</em> (basear suas decisões em informações recentemente encontradas, mesmo quando irrelevantes)<a id="nref-22"></a><a href="#n-22">22</a> e <em>auto-ancoragem</em> (usar a si próprio como um modelo de características prováveis dos outros sem ponderar suficientemente os sentidos nos quais você é atípico)<a id="nref-23"></a><a href="#n-23">23</a>; e o <em>viés do status quo</em> (favorecer excessivamente o que é normal e esperado contra o que é novo e diferente).<a id="nref-24"></a><a href="#n-24">24</a></p>
+</li>
+<li>
+<p><a id="n-12"></a><a href="#nref-12">↑</a> Katherine Hansen et al., “People Claim Objectivity After Knowingly Using Biased Strategies,” <em>Personality and Social Psychology Bulletin</em> 40, no. 6 (2014): 691–699.</p>
+</li>
+<li>
+<p><a id="n-13"></a><a href="#nref-13">↑</a> Da mesma forma, Pronin escreve a respeito da cegueira ao viés de gênero:</p>
+<blockquote>
+<p>Em um estudo, os participantes consideraram um candidato e uma candidata a um emprego de chefe de polícia e, em seguida, avaliaram se “ser malandro” <em>[streetwise no original]</em> ou “ter educação formal” era mais importante para o trabalho. O resultado foi que os participantes favoreceram aquela característica que, segundo haviam sido informados, era possuída pelo candidato do sexo masculino (por exemplo, se lhes havia sido dito que ele era “malandro”, eles viam isso como mais importante). Os participantes eram completamente cegos para esse viés de gênero; de fato, quanto mais objetivos eles achavam que tinham sido, maior era o viés que eles realmente demonstravam<a id="nref-25"></a><a href="#n-25">25</a>.</p>
+</blockquote>
+</li>
+</ol>
+<p>Mesmo quando sabemos sobre vieses, Pronin observa, continuamos sendo “realistas ingênuos” a respeito de nossas próprias crenças. Consistentemente tornamos a tratar nossas crenças como se fossem representações sem distorção de como as coisas realmente são<a id="nref-26"></a><a href="#n-26">26</a>.</p>
+<ol start="14">
+<li><a id="n-14"></a><a href="#nref-14">↑</a> Em uma pesquisa com 76 pessoas à espera em aeroportos, os indivíduos classificaram-se como muito menos suscetíveis a vieses cognitivos, em média, do que uma pessoa normal no aeroporto. Em particular, as pessoas se acham especialmente imparciais quando o viés é socialmente indesejável ou tem consequências difíceis de notar.<a id="nref-27"></a><a href="#n-27">27</a> Outros estudos constataram que as pessoas com laços pessoais em relação a um problema acreditam que esses laços melhoram a sua compreensão e objetividade; mas quando vêem <em>outras pessoas</em> que exibem os <em>mesmos</em> laços, eles inferem que essas pessoas estão excessivamente apegadas e enviesadas.</li>
+<li><a id="n-15"></a><a href="#nref-15">↑</a> Joyce Ehrlinger, Thomas Gilovich, and Lee Ross, “Peering Into the Bias Blind Spot: People’s Assessments of Bias in Themselves and Others,” <em>Personality and Social Psychology Bulletin</em> 31, no. 5 (2005): 680–692.</li>
+<li><a id="n-16"></a><a href="#nref-16">↑</a> Richard F. West, Russell J. Meserve, and Keith E. Stanovich, “Cognitive Sophistication Does Not Attenuate the Bias Blind Spot,” <em>Journal of Personality and Social Psychology</em> 103, no. 3 (2012): 506.</li>
+<li><a id="n-17"></a><a href="#nref-17">↑</a> Não devem ser confundidas com as pessoas que acham que são especialmente inteligentes, atenciosas etc. por causa do viés da superioridade ilusória.</li>
+<li><a id="n-18"></a><a href="#nref-18">↑</a> Michael J. Liersch and Craig R. M. McKenzie, “Duration Neglect by Numbers and Its Elimination by Graphs,” <em>Organizational Behavior and Human Decision Processes</em> 108, no. 2 (2009): 303–314.</li>
+<li><a id="n-19"></a><a href="#nref-19">↑</a> Sebastian Serfas, Cognitive Biases in the Capital Investment Context: Theoretical Considerations and Empirical Experiments on Violations of Normative Rationality (Springer, 2010).</li>
+<li><a id="n-20"></a><a href="#nref-20">↑</a> Zhuangzi and Burton Watson, <em>The Complete Works of Zhuangzi</em> (Columbia University Press, 1968).</li>
+<li><a id="n-21"></a><a href="#nref-21">↑</a> Cass R. Sunstein, “Probability Neglect: Emotions, Worst Cases, and Law,” <em>Yale Law Journal</em> (2002): 61–107.</li>
+<li><a id="n-22"></a><a href="#nref-22">↑</a> Dan Ariely, Predictably Irrational: The Hidden Forces That Shape Our Decisions (HarperCollins, 2008).</li>
+<li><a id="n-23"></a><a href="#nref-23">↑</a> Boaz Keysar and Dale J. Barr, “Self-Anchoring in Conversation: Why Language Users Do Not Do What They ‘Should,’” in <em>Heuristics and Biases: The Psychology of Intuitive Judgment</em>, ed. Thomas Gilovich, Dale Griffin, and Daniel Kahneman (New York: Cambridge University Press, 2002), 150–166, <span class="doi">doi</span>: 10.2277/0521796792.</li>
+<li><a id="n-24"></a><a href="#nref-24">↑</a> Scott Eidelman and Christian S. Crandall, “Bias in Favor of the Status Quo,” <em>Social and Personality Psychology Compass</em> 6, no. 3 (2012): 270–281.</li>
+<li><a id="n-25"></a><a href="#nref-25">↑</a> Eric Luis Uhlmann and Geoffrey L. Cohen, “‘I think it, therefore it’s true’: Effects of Self-perceived Objectivity on Hiring Discrimination,” <em>Organizational Behavior and Human Decision Processes</em> 104, no. 2 (2007): 207–223.</li>
+<li><a id="n-26"></a><a href="#nref-26">↑</a> Emily Pronin, “How We See Ourselves and How We See Others,” <em>Science</em> 320 (2008): 1177–1180, <a href="http://psych.princeton.edu/psychology/research/pronin/pubs/2008%20Self%20and%20Other.pdf">http://psych.princeton.edu/psychology/research/pronin/pubs/2008%20Self%20and%20Other.pdf</a></li>
+<li><a id="n-27"></a><a href="#nref-27">↑</a> Emily Pronin, Daniel Y. Lin, and Lee Ross, “The Bias Blind Spot: Perceptions of Bias in Self versus Others,” <em>Personality and Social Psychology Bulletin</em> 28, no. 3 (2002): 369–381.</li>
+</ol>
+</article>
+
+                </div>
+
+                <!-- Mobile navigation buttons -->
+                
+
+                
+
+            </div>
+
+            
+
+            
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
+        </script>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+    </body>
+</html>
