@@ -101,10 +101,31 @@
     })
   }
 
+  function newBook(bookNode) {
+    var t = bookNode.attributes.t.value.trim()
+    var space = t.indexOf(" ")
+    var index = t.slice(0, space).trim()
+    var bookName = t.slice(space+1).trim()
+    var wrapper = $("<section id='book-" + index.toLowerCase() + "'>")
+    var title = $("<h1 class'book-title'>")
+    title.text(index.toUpperCase() + " - " + bookName)
+    wrapper.html(bookNode.innerHTML)
+    wrapper.prepend(title)
+    return wrapper
+  }
+
+  function replaceBooks(document) {
+    console.log('Replacing books...')
+    $("book").each(function(i, bookNode) {
+      $(bookNode).replaceWith(newBook(bookNode))
+    })
+  }
+
   if (window.document) {
     window.document.addEventListener(
       'DOMContentLoaded',
       withTarget(runAll([
+        replaceBooks,
         replaceFootnoteRefs,
         replaceFootnotes,
         replaceEndlinks,
